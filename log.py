@@ -51,7 +51,7 @@ while 1:
         print(line)
         log.write(str(line))
         mqttc.publish(topic, "identification data: "+str(line))
-    elif line_de == "80662\r\n":
+    if line_de == "80662\r\n":
         print("matrix data:")
         line = s.readline().decode()
         print(line)
