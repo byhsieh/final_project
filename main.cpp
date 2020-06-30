@@ -5,10 +5,10 @@
 #include "bbcar.h"
 #include "bbcar_rpc.h"
 
-// For OpenMV
+// OpenMV
 Serial uart(D1, D0); //tx,rx
 
-// For distance decoder
+// distance decoder
 Ticker encoder_ticker_r;
 Ticker encoder_ticker_l;
 DigitalIn pin7(D7);
@@ -16,12 +16,12 @@ DigitalIn pin6(D6);
 parallax_encoder encoder_right(pin7, encoder_ticker_r);
 parallax_encoder encoder_left(pin6, encoder_ticker_l);
 
-// For serv control
+// servo control
 Ticker servo_ticker;
 PwmOut pin9(D9), pin8(D8);
 BBCar car(pin8, pin9, servo_ticker);
 
-// For getting ping data
+// get ping data
 DigitalOut redLED(LED1);
 DigitalInOut pin10(D10);
 parallax_ping ping(pin10);
@@ -327,7 +327,7 @@ int main()
   wait(1);
   behavior = 'S';
   ping_guide(30, 100);
-  // ****** finish mission 2 ****** //
+  // ****** mission 2 is not completed ****** //
   
   // ****** go to exit ****** //
   // turn right
@@ -338,6 +338,5 @@ int main()
   wait(1);
   behavior = 'S';
   car.goStraight(100);
-  // ****** finish all missions and exit the maze ****** //
   
 }
